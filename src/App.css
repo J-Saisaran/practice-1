@@ -6,4 +6,18 @@
     width: 200px;
     height: 250px;
   }
+  .addColor{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .s{
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+  }
   
