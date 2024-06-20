@@ -1,23 +1,50 @@
-.App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  .Photo{
-    width: 200px;
-    height: 250px;
-  }
-  .addColor{
 
+  .addColor{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+
   }
-  .s{
-    
+ 
+
+  .movie-poster{
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+  }
+
+  .movie-card{
+width: 350px;
+  }
+  .movie-list{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+  }
+  .movie-spec{
     display: flex;
     align-items: center;
-    flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .movie-summary{
+
+    margin-top: 0px;
+    text-align: justify;
+  }
+  .movie-button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+  .playbutton{
+
+    background-color: blueviolet;
+    border-radius: 10px;
+    border-style: none;
+    font-size: 20px;
+    color: whitesmoke;
   }
   
