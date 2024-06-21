@@ -22,8 +22,9 @@ export function Addcolor() {
       </div>
 
       
-        {colorList.map((clr) => (
-          <Colorbox color={clr} />
+      
+        {colorList.map((clr, index) => (
+          <Colorbox key={index} color={clr} />
         ))}
 
         {/* <Colorbox color={colorList[0]} />
