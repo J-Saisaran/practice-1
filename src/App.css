@@ -47,4 +47,11 @@ justify-content: space-evenly;
     font-size: 20px;
     color: whitesmoke;
   }
+  .add-movie-form{
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
   

@@ -2,7 +2,7 @@ import React from 'react'
 import "./App.css";
 import { Welcome1 } from './Welcome1';
 import { Addcolor } from './Addcolor';
-import { Routes, Route ,Link} from 'react-router-dom';
+import { Routes, Route ,Link, useParams} from 'react-router-dom';
 import { Movielist } from './Movielist';
 import { Home } from './Home';
 
@@ -547,7 +547,7 @@ const App = () => {
         <div className='App'>
           <nav>
             <ul>
-              <li><Link to="/">Home</Link></li>
+              <li><Link to="/Home">Home</Link></li>
               <li><Link to="/movies">Movielist</Link></li>
               <li><Link to="/add-color">Addcolor</Link></li>
               <li><Link to="/Somewhere">Somewhere</Link></li>
@@ -555,8 +555,9 @@ const App = () => {
           </nav>
 
 <Routes>
-  <Route path="/" element={<Home />}/>
+  <Route path="/Home" element={<Home />}/>
   <Route path="/movies" element={<Movielist/>}/>
+  <Route path="/movies/:movieid" element={<MovieDetails/>}/>
   <Route path="/add-color" element={<Addcolor/>}/>
   <Route path="*" element={<NotFoundPage />}/>
 </Routes>
@@ -568,6 +569,13 @@ const App = () => {
 function NotFoundPage(){
   return(
     <img src="https://freefrontend.com/assets/img/html-funny-404-pages/CodePen-404-Page.gif" alt="404 Not Found" />
+  )
+}
+
+function MovieDetails(){
+  const{movieid}= useParams();
+  return(
+    <h1>Moviedetails page - {movieid}</h1>
   )
 }
 export default App
