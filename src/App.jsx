@@ -1,6 +1,5 @@
 import React from 'react'
 import "./App.css";
-import { Welcome1 } from './Welcome1';
 import { Addcolor } from './Addcolor';
 import { Routes, Route ,Link, useParams} from 'react-router-dom';
 import { Movielist } from './Movielist';
