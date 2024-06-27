@@ -5,6 +5,9 @@ import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
+
 export function Movie({ movie , id}) {
   const [show, setShow] = useState(true);
   const navigate = useNavigate();

@@ -1,9 +1,12 @@
 import React from 'react'
 import "./App.css";
 import { Addcolor } from './Addcolor';
-import { Routes, Route ,Link, useParams} from 'react-router-dom';
+import { Routes, Route ,Link} from 'react-router-dom';
 import { Movielist } from './Movielist';
 import { Home } from './Home';
+import { NotFoundPage } from './NotFoundPage';
+import { MovieDetails } from './MovieDetails';
+import { useState } from 'react';
 
 
 export const Initial_Movie_name=[
@@ -541,6 +544,7 @@ export const Initial_Movie_name=[
 ]
 
 const App = () => {
+  const [MovieList,setMovieList] = useState(Initial_Movie_name);
   
   return ( 
         <div className='App'>
@@ -555,8 +559,8 @@ const App = () => {
 
 <Routes>
   <Route path="/Home" element={<Home />}/>
-  <Route path="/movies" element={<Movielist/>}/>
-  <Route path="/movies/:movieid" element={<MovieDetails/>}/>
+  <Route path="/movies" element={<Movielist   MovieList= {MovieList} setMovieList={setMovieList}  />}/>
+  <Route path="/movies/:movieid" element={<MovieDetails  MovieList= {MovieList}  />}/>   
   <Route path="/add-color" element={<Addcolor/>}/>
   <Route path="*" element={<NotFoundPage />}/>
 </Routes>
@@ -565,16 +569,4 @@ const App = () => {
   )
 }
 
-function NotFoundPage(){
-  return(
-    <img src="https://freefrontend.com/assets/img/html-funny-404-pages/CodePen-404-Page.gif" alt="404 Not Found" />
-  )
-}
-
-function MovieDetails(){
-  const{movieid}= useParams();
-  return(
-    <h1>Moviedetails page - {movieid}</h1>
-  )
-}
 export default App

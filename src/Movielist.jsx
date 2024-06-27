@@ -4,8 +4,8 @@ import { Initial_Movie_name } from './App';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-export function Movielist() {
-  const [MovieList,setMovieList] = useState(Initial_Movie_name);
+export function Movielist({MovieList,setMovieList}) {
+ 
   const [name,setName]=useState("")
   const [rating,setRating]=useState("")
   const [poster,setposter]=useState("")
@@ -35,18 +35,6 @@ onClick={() => {
   }}
 
 >Add movie</Button>
-
-
-{/* <button onClick={() => {
-  const newMovie={
-    name,
-    poster,
-    rating,
-    Summary
-  }
-  setMovieList([...MovieList, newMovie])
-  
-  }}>Add movie</button> */}
       </div>
 
 
