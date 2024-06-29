@@ -571,9 +571,10 @@ const App = () => {
 <Button color="inherit" onClick={() => navigate("/Home")}> Home </Button>
 <Button color="inherit" onClick={() => navigate("/movies")}> Movielist </Button>
 <Button color="inherit" onClick={() => navigate("/add-color")}>  Addcolor </Button>
-<Button color="inherit" onClick={() => navigate("/movies/:movieid")}>ExampleContext  </Button>
+<Button color="inherit" onClick={() => navigate("/example-context")}>ExampleContext  </Button>
+<Button color="inherit" onClick={() => navigate("/Somewhere")}> Somewhere </Button>
+<Button color="inherit" onClick={() => navigate("/Somewhere")}> Mode </Button>
 
-<Button color="inherit" onClick={() => navigate("/movies")}> Somewhere </Button>
 
 </Toolbar>
 </AppBar>
