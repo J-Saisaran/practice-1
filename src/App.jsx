@@ -1,20 +1,25 @@
 import React from 'react'
 import "./App.css";
 import { Addcolor } from './Addcolor';
-import { Routes, Route ,Link} from 'react-router-dom';
+import { Routes, Route ,Link, useNavigate} from 'react-router-dom';
 import { Movielist } from './Movielist';
 import { Home } from './Home';
 import { NotFoundPage } from './NotFoundPage';
+import ExampleContext from './context/ExampleContext';
 import { MovieDetails } from './MovieDetails';
 import { useState } from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 
-
-export const Initial_Movie_name=[
+export const Initial_Movie_name=[  
   {
     poster:"https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcxNDE@._V1_FMjpg_UX1000_.jpg",
     name:"Dark",
     Summary:"The German science fiction thriller series  takes place in the enigmatic little town of Winden. The narrative starts in 2019 with the disappearance of a young boy named Erik Obendorf. This sets off a series of events that reveal the town's dark secrets and interwoven lives across several generations.",
-    trailer:"https://youtu.be/rrwycJ08PSA",
+    trailer:"https://www.youtube.com/embed/rrwycJ08PSA",
     rating: 4.6 
   },
   {
@@ -543,29 +548,57 @@ export const Initial_Movie_name=[
       }
 ]
 
+//create context
+// provider -> context.Provider
+// subscriber -> useContext(context)
+const theme = createTheme({
+  palette: {
+    mode: 'light',
+  },
+});
+
 const App = () => {
   const [MovieList,setMovieList] = useState(Initial_Movie_name);
+  const navigate = useNavigate();
   
   return ( 
-        <div className='App'>
-          <nav>
+    <ThemeProvider theme={theme}>
+<CssBaseline />
+<div className='App'>
+<AppBar position="static">
+<Toolbar disableGutters>
+
+<Button color="inherit" onClick={() => navigate("/Home")}> Home </Button>
+<Button color="inherit" onClick={() => navigate("/movies")}> Movielist </Button>
+<Button color="inherit" onClick={() => navigate("/add-color")}>  Addcolor </Button>
+<Button color="inherit" onClick={() => navigate("/movies/:movieid")}>ExampleContext  </Button>
+
+<Button color="inherit" onClick={() => navigate("/movies")}> Somewhere </Button>
+
+</Toolbar>
+</AppBar>
+          {/* <nav>
             <ul>
               <li><Link to="/Home">Home</Link></li>
               <li><Link to="/movies">Movielist</Link></li>
               <li><Link to="/add-color">Addcolor</Link></li>
+              <li><Link to="/example-context">ExampleContext</Link></li>
               <li><Link to="/Somewhere">Somewhere</Link></li>
             </ul>
-          </nav>
+          </nav> */}
 
 <Routes>
   <Route path="/Home" element={<Home />}/>
   <Route path="/movies" element={<Movielist   MovieList= {MovieList} setMovieList={setMovieList}  />}/>
   <Route path="/movies/:movieid" element={<MovieDetails  MovieList= {MovieList}  />}/>   
   <Route path="/add-color" element={<Addcolor/>}/>
+  <Route path="/example-context" element={<ExampleContext/>}/>
   <Route path="*" element={<NotFoundPage />}/>
 </Routes>
   
     </div>
+    </ThemeProvider>
+       
   )
 }
 

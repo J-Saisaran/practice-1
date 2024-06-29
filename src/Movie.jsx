@@ -5,6 +5,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 
 
 
@@ -26,15 +27,16 @@ export function Movie({ movie , id}) {
       <IconButton color='primary' aria-label="Info" onClick={() => setShow(!show)}>
         {show ? <ExpandLessIcon  /> : <ExpandMoreIcon/>}
       </IconButton>
-      {/* <button onClick={() => setShow(!show)}>{show ? <ExpandLessIcon  /> : <ExpandMoreIcon/>}</button> */}
-
-      <IconButton color='primary' aria-label="Info" onClick={()=> navigate("/movies/" + id)}>
+      
+      <IconButton color='primary' aria-label="Info" onClick={()=> navigate(`/movies/${id}`)}>
       <InfoIcon/>
 </IconButton>
       {show ? <p className='movie-Summary'>{movie.Summary}</p> : ""}
       <div className='movie-button'>
         <Counter />
-        <button className='playbutton'> ▶️ Watch now</button>
+        <IconButton className='playbutton' variant="contained" onClick={() => {movie.trailer}}>
+     <PlayArrowRoundedIcon/>
+     </IconButton>
       </div>
     </div>
 
