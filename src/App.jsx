@@ -13,6 +13,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { IconButton } from '@mui/material';
+
 
 export const Initial_Movie_name=[  
   {
@@ -548,18 +552,22 @@ export const Initial_Movie_name=[
       }
 ]
 
-//create context
-// provider -> context.Provider
-// subscriber -> useContext(context)
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-  },
-});
+
 
 const App = () => {
   const [MovieList,setMovieList] = useState(Initial_Movie_name);
+  const [mode, setMode]= useState("light");
   const navigate = useNavigate();
+
+  //create context
+// provider -> context.Provider
+// subscriber -> useContext(context)
+
+const theme = createTheme({
+  palette: {
+    mode: mode,
+  },
+});
   
   return ( 
     <ThemeProvider theme={theme}>
@@ -567,13 +575,13 @@ const App = () => {
 <div className='App'>
 <AppBar position="static">
 <Toolbar disableGutters>
-
 <Button color="inherit" onClick={() => navigate("/Home")}> Home </Button>
 <Button color="inherit" onClick={() => navigate("/movies")}> Movielist </Button>
 <Button color="inherit" onClick={() => navigate("/add-color")}>  Addcolor </Button>
 <Button color="inherit" onClick={() => navigate("/example-context")}>ExampleContext  </Button>
 <Button color="inherit" onClick={() => navigate("/Somewhere")}> Somewhere </Button>
-<Button color="inherit" onClick={() => navigate("/Somewhere")}> Mode </Button>
+<Button color="inherit" onClick={() => setMode(mode === "dark" ? "light" : "dark")} startIcon = {mode === "dark" ? <Brightness4Icon/> : <Brightness7Icon/>}> 
+{mode === "light" ? "Dark" : "Light"} Mode </Button>
 
 
 </Toolbar>
