@@ -16,6 +16,9 @@ import Button from '@mui/material/Button';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { IconButton } from '@mui/material';
+import Addmovies from './Addmovies';
+import Ref from './Ref';
+import Reducer from './Reducer';
 
 
 export const Initial_Movie_name=[  
@@ -573,13 +576,16 @@ const theme = createTheme({
     <ThemeProvider theme={theme}>
 <CssBaseline />
 <div className='App'>
-<AppBar position="static">
+<AppBar position="static" style={{marginBottom:"20px"}}>
 <Toolbar disableGutters>
 <Button color="inherit" onClick={() => navigate("/Home")}> Home </Button>
 <Button color="inherit" onClick={() => navigate("/movies")}> Movielist </Button>
 <Button color="inherit" onClick={() => navigate("/add-color")}>  Addcolor </Button>
+<Button color="inherit" onClick={() => navigate("/movies/add")}>  Add Movies </Button>
 <Button color="inherit" onClick={() => navigate("/example-context")}>ExampleContext  </Button>
 <Button color="inherit" onClick={() => navigate("/Somewhere")}> Somewhere </Button>
+<Button color="inherit" onClick={() => navigate("/ref")}> Ref </Button>
+<Button color="inherit" onClick={() => navigate("/reducer")}> Reducer    </Button>
 <Button color="inherit" onClick={() => setMode(mode === "dark" ? "light" : "dark")} startIcon = {mode === "dark" ? <Brightness4Icon/> : <Brightness7Icon/>}> 
 {mode === "light" ? "Dark" : "Light"} Mode </Button>
 
@@ -601,7 +607,10 @@ const theme = createTheme({
   <Route path="/movies" element={<Movielist   MovieList= {MovieList} setMovieList={setMovieList}  />}/>
   <Route path="/movies/:movieid" element={<MovieDetails  MovieList= {MovieList}  />}/>   
   <Route path="/add-color" element={<Addcolor/>}/>
+  <Route path="/movies/add" element={<Addmovies  MovieList= {MovieList} setMovieList={setMovieList}  />}/>
   <Route path="/example-context" element={<ExampleContext/>}/>
+  <Route path="/ref" element={<Ref/>}/>
+  <Route path="/reducer" element={<Reducer/>}/>
   <Route path="*" element={<NotFoundPage />}/>
 </Routes>
   

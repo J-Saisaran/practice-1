@@ -21,6 +21,7 @@ width: 350px;
 display: flex;
 flex-wrap: wrap;
 justify-content: space-evenly;
+
   }
   .movie-spec{
     display: flex;

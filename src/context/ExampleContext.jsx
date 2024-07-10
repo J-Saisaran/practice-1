@@ -18,14 +18,15 @@ function ExampleContext() {
 function Sample(){
     const name = useContext(NameContext)
     return(
-        <div>hey i am {name}</div>
+        <div><h1>hey i am {name}</h1></div>
     )
 }
 
 function Sample1(){
     const name = useContext(NameContext)
+    
     return(
-        <div>hey i am {name}</div>
+        <div><h1>hey i am {name}</h1></div>
     )
 }
 
