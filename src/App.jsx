@@ -19,6 +19,7 @@ import { IconButton } from '@mui/material';
 import Addmovies from './Addmovies';
 import Ref from './Ref';
 import Reducer from './Reducer';
+import Tiktaktoe from './Tiktaktoe';
 
 
 export const Initial_Movie_name=[  
@@ -586,6 +587,7 @@ const theme = createTheme({
 <Button color="inherit" onClick={() => navigate("/Somewhere")}> Somewhere </Button>
 <Button color="inherit" onClick={() => navigate("/ref")}> Ref </Button>
 <Button color="inherit" onClick={() => navigate("/reducer")}> Reducer    </Button>
+<Button color="inherit" onClick={() => navigate("/tiktaktoe")}> Tik Tak Toe    </Button>
 <Button color="inherit" onClick={() => setMode(mode === "dark" ? "light" : "dark")} startIcon = {mode === "dark" ? <Brightness4Icon/> : <Brightness7Icon/>}> 
 {mode === "light" ? "Dark" : "Light"} Mode </Button>
 
@@ -611,6 +613,7 @@ const theme = createTheme({
   <Route path="/example-context" element={<ExampleContext/>}/>
   <Route path="/ref" element={<Ref/>}/>
   <Route path="/reducer" element={<Reducer/>}/>
+  <Route path="/tiktaktoe" element={<Tiktaktoe/>}/>
   <Route path="*" element={<NotFoundPage />}/>
 </Routes>
   

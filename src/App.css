@@ -55,4 +55,28 @@ justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 2px;
   }
+
+  .game-box{
+    border: 2px solid black;
+    width: 10rem;
+    height: 10rem;
+    cursor: pointer;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .board{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    width: min-content;
+  }
+
+  .full-game{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
   
